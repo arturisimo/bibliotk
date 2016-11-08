@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('LibroController', ['$scope', '$http', function($scope, $http) {
+angular.module('libroApp').controller('LibroController', ['$scope', '$http', function($scope, $http) {
     
 	$scope.libro={};
 	$scope.libros=[];
