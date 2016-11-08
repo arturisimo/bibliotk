@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" th:fragment="nav">
+      <div class="container">
+        <div class="navbar">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" th:href="@{/libros}">Bibliotk</a>
+          
+          <div class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <li class="active"><a href="#" th:href="@{/libros}">Libros</a></li>
+	            <li><a href="#" th:href="@{/message}">Messages</a></li>
+	            <li><a href="#" th:href="@{/task}">Tasks</a></li>
+	          </ul>
+	          <form th:action="@{/logout}" method="post">
+            	<input type="submit" id="logout" class="btn btn-lg btn-primary btn-block pull-right" value="logout"/>
+          	</form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

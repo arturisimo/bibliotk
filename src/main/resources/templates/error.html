@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: head"> 
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	
+	<div class="container">
+		
+		<div th:replace="fragments/nav :: nav">...</div>
+	
+		<h1 th:text="${title}" class="jumbotron">Error</h1>
+		
+		<div>
+			There was an unexpected error (type=<span th:text="${error}">Bad</span>, status=<span th:text="${status}">500</span>).
+		</div>
+		<div th:text="${message}">Fake content</div>
+		<div>
+			Please contact the operator with the above information.
+		</div>
+        
+     </div>
+     
+    
+     <div th:replace="fragments/footer :: footer">...</div>
+	
+</body>
+</html>

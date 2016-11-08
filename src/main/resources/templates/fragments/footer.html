@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+  	
+  	<footer class="footer" th:fragment="footer">
+      <div class="container">
+        <p class="text-muted" th:text="${#dates.format(date)}" />
+      </div>
+    </footer>
+  
+  </body>
+</html>
