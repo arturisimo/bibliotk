@@ -3,59 +3,25 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body  ng-controller="LibroController">
+<body>
 	<div layout:fragment="content">
-		<div class="container">
-		<div th:replace="fragments/nav :: nav">...</div>
 		
-		<h1 class="jumbotron" th:text="${title}"></h1>
-		
-		<div class="tablecontainer col-xs-8">
+		<div class="tablecontainer col-xs-8" ng-controller="LibroController">
                <table class="table table-hover">
                    <thead>
-                       <tr>
-                           <th>ID</th>
-                           <th>Título</th>
-                           <th>Alta</th>
-                           <th>Fecha</th>
-                           <th></th>
-                       </tr>
+                       <tr><th>ID</th><th>Título</th><th>Alta</th><th>Fecha</th></tr>
                    </thead>
                    <tbody>
-                       <tr ng-repeat="libro in libros" ng-click="editLibro(libro)">
+                       <tr ng-repeat="libro in libros">
                            <td>{{libro.id}}</td>
                            <td>{{libro.titulo}}</td>
                            <td>{{libro.alta}}</td>
                            <td>{{libro.fechaAlta | date:'dd/MM/yyyy HH:mm:ss'}}</td>
-                           <td>
-                           		<a href="#" ng-click="deleteLibro(libro)" title="Eliminar" >
-									<span class="glyphicon glyphicon-remove pull-right"></span>
-								</a>
-							</td>
                        </tr>
                    </tbody>
                </table>
-	     </div>
-	     
-     	<div class="formcontainer col-xs-4">
-	          <form ng-submit="addLibro(libro)" name="formLibro" class="form-horizontal">
-	           		<div class="form-group col-md-12">
-	           			<label class="col-md-2 control-lable" for="titulo">Título</label>
-                        <input type="text" id="titulo" ng-model="libro.titulo" name="titulo" class="form-control input-sm" placeholder="Título" required="required" ng-minlength="3" />
-                        <div class="has-error" ng-show="formLibro.$dirty">
-                            <span ng-show="formLibro.titulo.$error.required">Campo requerido</span>
-                            <span ng-show="formLibro.titulo.$error.minlength">Longitud minima es 3</span>
-                            <span ng-show="formLibro.titulo.$invalid">Este campo es invalido</span>
-                        </div>                            
-                    </div>
-
-                    <div class="form-actions floatRight">
-                        <input type="submit"  value="{{!libro.id ? 'Alta' : 'Actualizar'}}" class="btn btn-primary btn-sm" ng-disabled="formLibro.$invalid" />
-                    </div>
-			 </form>
-     	</div>
-     	<div th:replace="fragments/footer :: footer">...</div>
-	</div>
+		</div>
+		
 	</div>
 </body>
 </html>

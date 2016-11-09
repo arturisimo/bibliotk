@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('btkApp', []).controller('LibroController', ['$scope', '$http', function($scope, $http) {
+app.controller('LibroController', ['$scope', '$http', function($scope, $http) {
     
 	$scope.libro={};
 	$scope.libros=[];
     
 	listLibro();
-    
+  
     function listLibro(){
     	$http.get('/api/libros').success(function(libros) {
         	$scope.libros = libros._embedded.libros;
@@ -17,7 +17,7 @@ angular.module('btkApp', []).controller('LibroController', ['$scope', '$http', f
     
     $scope.addLibro = function(formLibro) {
     	
-    	if ( formLibro.id == null) {
+    	if (formLibro.id == null) {
     		
     		formLibro.alta = 'N'
     		console.log(formLibro);	
@@ -34,13 +34,12 @@ angular.module('btkApp', []).controller('LibroController', ['$scope', '$http', f
 	    	});
     	}
     	
-    	$scope.formLibro = {};
-    	
     }
     
     $scope.editLibro = function(libro){
     	$scope.libro = libro;
     }
+    
     $scope.deleteLibro = function(libro){
     	console.log(libro);
     	$http.delete('/api/libros/'+libro.id).success(function() {

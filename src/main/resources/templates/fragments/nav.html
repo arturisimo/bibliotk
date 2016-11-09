@@ -9,17 +9,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" th:href="@{/libros}">Bibliotk</a>
+          <a class="navbar-brand" href="#" th:href="@{/}">Bibliotk</a>
           
-          <div class="navbar-collapse collapse">
+          <div class="navbar-collapse collapse" ng-controller="LoginController">
 	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="#" th:href="@{/libros}">Libros</a></li>
-	            <li><a href="#" th:href="@{/message}">Messages</a></li>
-	            <li><a href="#" th:href="@{/task}">Tasks</a></li>
+	            <li class="active"><a href="#" th:href="@{/}">Libros</a></li>
 	          </ul>
-	          <form th:action="@{/logout}" method="post">
-            	<input type="submit" id="logout" class="btn btn-lg btn-primary btn-block pull-right" value="logout"/>
-          	</form>
+	          <ul class="nav navbar-nav navbar-right pull-right">
+	          	 <li><a href="#" ng-click="login()"><span class="glyphicon glyphicon-log-in"></span></a></li>
+	          </ul>
           </div>
           
         </div>
