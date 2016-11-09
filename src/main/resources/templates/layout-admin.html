@@ -1,0 +1,29 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" ng-app="btkApp">
+<head>
+	<title th:text="${title}">Title</title>
+  	<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" href="#" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" href="#" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+	
+	<script type="text/javascript" src="#" th:src="@{/webjars/angularjs/1.5.8/angular.min.js}"></script>
+	<script type="text/javascript">
+		var app = angular.module('btkApp', []);
+	</script>
+	<script type="text/javascript" src="#" th:src="@{/js/libro.js}"></script>
+	
+	<div class="container">
+	
+		<div th:replace="fragments/nav-admin :: nav-admin">...</div>
+		
+		<h1 class="jumbotron" th:text="${title}"></h1>
+	
+		<div layout:fragment="content"></div>
+	</div>
+	
+</body>
+</html>
