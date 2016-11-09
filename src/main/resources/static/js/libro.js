@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('libroApp').controller('LibroController', ['$scope', '$http', function($scope, $http) {
+angular.module('btkApp', []).controller('LibroController', ['$scope', '$http', function($scope, $http) {
     
 	$scope.libro={};
 	$scope.libros=[];
@@ -16,9 +16,11 @@ angular.module('libroApp').controller('LibroController', ['$scope', '$http', fun
     }
     
     $scope.addLibro = function(formLibro) {
-    	console.log(formLibro);
     	
     	if ( formLibro.id == null) {
+    		
+    		formLibro.alta = 'N'
+    		console.log(formLibro);	
     		$http.post('/api/libros', formLibro).success(function(libro) {
 	    		listLibro();
 	    	}).error(function(error) {
@@ -31,6 +33,9 @@ angular.module('libroApp').controller('LibroController', ['$scope', '$http', fun
 	           console.log(error);
 	    	});
     	}
+    	
+    	$scope.formLibro = {};
+    	
     }
     
     $scope.editLibro = function(libro){

@@ -14,7 +14,7 @@
                <table class="table table-hover">
                    <thead>
                        <tr>
-                           <th>ID.</th>
+                           <th>ID</th>
                            <th>Título</th>
                            <th>Alta</th>
                            <th>Fecha</th>
@@ -39,7 +39,6 @@
 	     
      	<div class="formcontainer col-xs-4">
 	          <form ng-submit="addLibro(libro)" name="formLibro" class="form-horizontal">
-	           		<input type="hidden" ng-model="libro.id" name="id"  />
 	           		<div class="form-group col-md-12">
 	           			<label class="col-md-2 control-lable" for="titulo">Título</label>
                         <input type="text" id="titulo" ng-model="libro.titulo" name="titulo" class="form-control input-sm" placeholder="Título" required="required" ng-minlength="3" />
