@@ -4,10 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body  ng-controller="LibroController">
-	<div layout:fragment="content">
+<body >
+	<div layout:fragment="content" ng-controller="LibroController">
 		
-		<div class="tablecontainer col-xs-8" ng-controller="LibroController">
+		<div class="tablecontainer col-xs-8">
                <table class="table table-hover">
                    <thead>
                        <tr><th>ID</th><th>Título</th><th>Alta</th><th>Fecha</th><th></th></tr>
@@ -19,6 +19,14 @@
                            <td>{{libro.alta}}</td>
                            <td>{{libro.fechaAlta | date:'dd/MM/yyyy HH:mm:ss'}}</td>
                            <td>
+                            	<a href="#" ng-click="hideLibro(libro)" title="Ocultar" ng-show="{{libro.alta=='S'}}">
+									<span class="glyphicon glyphicon-plus pull-right"></span>
+								</a>
+								<a href="#" ng-click="publishLibro(libro)" title="Publicar" ng-show="{{libro.alta=='N'}}">
+									<span class="glyphicon glyphicon-minus pull-right"></span>
+								</a>
+							</td>
+							<td>	
                            		<a href="#" ng-click="deleteLibro(libro)" title="Eliminar" >
 									<span class="glyphicon glyphicon-remove pull-right"></span>
 								</a>
@@ -29,7 +37,7 @@
 	     </div>
 	     
      	<div class="formcontainer col-xs-4">
-	          <form ng-submit="addLibro(libro)" name="formLibro" class="form-horizontal">
+	          <form ng-submit="addLibro(libro)" name="formLibro" class="form-horizontal"> <span ng-value="{{libro.titulo}}"></span>
 	           		<div class="form-group col-md-12">
 	           			<label class="col-md-2 control-lable" for="titulo">Título</label>
                         <input type="text" id="titulo" ng-model="libro.titulo" name="titulo" class="form-control input-sm" placeholder="Título" required="required" ng-minlength="3" />

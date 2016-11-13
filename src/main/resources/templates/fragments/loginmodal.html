@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <body>
-	<form name="form" th:action="@{/login}" method="POST">
+	<form name="form" th:action="@{/login}" method="POST" th:fragment="login">
 		<div class="modal-header">
 			<h3 class="modal-title" th:text="Login"></h3>
 		</div>

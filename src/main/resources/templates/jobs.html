@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout-admin">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body >
+	<div layout:fragment="content">
+		<div class="tablecontainer col-xs-8" ng-controller="jobController">
+		
+			   <p><span ng-value="{{msg}}"></span></p>
+               <table class="table table-hover">
+                   <thead>
+                       <tr><th>nombre</th><th>grupo</th><th>Descripción</th><th>Fecha próxima ejecución</th><th></th></tr>
+                   </thead>
+                   <tbody>
+                       <tr ng-repeat="job in jobs">
+                           <td>{{job.jobName}}</td>
+                           <td>{{job.jobGroup}}</td>
+                           <td>{{job.jobDescription}}</td>
+                           <td>{{job.nextFireTime | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                           <td><a ng-click="fireJob(job)"><span class="glyphicon glyphicon-fire"></span></a></td>
+                       </tr>
+                   </tbody>
+               </table>
+	     </div>
+	     
+     	<div th:replace="fragments/footer :: footer">...</div>
+	
+	</div>
+</body>
+</html>
+

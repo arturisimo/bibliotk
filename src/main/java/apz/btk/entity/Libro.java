@@ -15,14 +15,9 @@ public class Libro {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 	
-	@Column(name="titulo")
-    private String titulo;
-	
-	@Column(name="alta")
-    private String alta;
-	
-	@Column(name="fecha_alta")
-    private Date fechaAlta ;
+	private String titulo;
+	private String alta;
+	private Date fechaAlta ;
   
     public Date getFechaAlta() {
 		return fechaAlta;

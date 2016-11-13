@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2016-11-12T10:12:48 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="in" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="2f27222b-d76c-4bb5-a946-b4ca3f017c8b">
+	<style name="Title" fontSize="26"/>
+	<style name="Head" fontSize="12"/>
+	<field name="titulo" class="java.lang.String"/>
+	<field name="fechaAlta" class="java.util.Date"/>
+	<group name="Header">
+		<groupHeader>
+			<band height="45">
+				<staticText>
+					<reportElement style="Title" x="190" y="0" width="260" height="40" uuid="0cb23f21-4468-4809-acc7-dc2330f27e08"/>
+					<text><![CDATA[Informe de libros]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="username_group">
+		<groupHeader>
+			<band height="22" splitType="Stretch">
+				<staticText>
+					<reportElement style="Head" x="70" y="0" width="150" height="20" uuid="eefca196-83bf-4959-9bd1-5c6515e60b70"/>
+					<text><![CDATA[Titulo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Head" x="230" y="0" width="148" height="20" uuid="7336a787-299d-4598-9b6c-8a68fc22a13c"/>
+					<text><![CDATA[Fecha Alta]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="10" splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="70" y="0" width="150" height="20" uuid="de2aeda7-8552-45c7-bda3-192539856adb"/>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="148" height="20" uuid="f3dda1f5-aae5-4a21-96e3-bbbb9a542c0f"/>
+				<textFieldExpression><![CDATA[$F{fechaAlta}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="3" y="12" width="555" height="1" uuid="5706caf2-3ec6-4a9e-b01c-478254343d5a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
