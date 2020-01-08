@@ -17,13 +17,19 @@
 	<script type="text/javascript" src="#" th:src="@{/js/libro.js}"></script>
 	<script type="text/javascript" src="#" th:src="@{/js/job.js}"></script>
 	
-	<div class="container">
+	<div>
 	
 		<div th:replace="fragments/nav-admin :: nav-admin">...</div>
 		
-		<h1 class="jumbotron" th:text="${title}"></h1>
-	
-		<div layout:fragment="content"></div>
+		<div class="jumbotron">
+			<div class="container">	
+				<h1 th:text="${title}"></h1>
+			</div>
+		</div>		
+		
+		<div class="container">
+			<div layout:fragment="content"></div>
+		</div>	
 	</div>
 	
 </body>

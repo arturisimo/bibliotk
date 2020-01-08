@@ -10,25 +10,25 @@
 		<div class="tablecontainer col-xs-8">
                <table class="table table-hover">
                    <thead>
-                       <tr><th>ID</th><th>Título</th><th>Alta</th><th>Fecha</th><th></th></tr>
+                       <tr><th>ID</th><th>Título</th><th>ISBN</th><th>Fecha</th><th>Alta</th><th>Público</th></tr>
                    </thead>
                    <tbody>
                        <tr ng-repeat="libro in libros" ng-click="editLibro(libro)">
                            <td>{{libro.id}}</td>
                            <td>{{libro.titulo}}</td>
-                           <td>{{libro.alta}}</td>
+                           <td>{{libro.isbn}}</td>
                            <td>{{libro.fechaAlta | date:'dd/MM/yyyy HH:mm:ss'}}</td>
-                           <td>
-                            	<a href="#" ng-click="hideLibro(libro)" title="Ocultar" ng-show="{{libro.alta=='S'}}">
-									<span class="glyphicon glyphicon-plus pull-right"></span>
+                           <td style="text-align: center;">
+                            	<a href="#" ng-click="hideLibro(libro)" title="Ocultar" ng-show="{{libro.alta}}">
+									<span class="glyphicon glyphicon-plus"></span>
 								</a>
-								<a href="#" ng-click="publishLibro(libro)" title="Publicar" ng-show="{{libro.alta=='N'}}">
-									<span class="glyphicon glyphicon-minus pull-right"></span>
+								<a href="#" ng-click="publishLibro(libro)" title="Publicar" ng-show="{{!libro.alta}}">
+									<span class="glyphicon glyphicon-minus"></span>
 								</a>
 							</td>
-							<td>	
+							<td style="text-align: center;">	
                            		<a href="#" ng-click="deleteLibro(libro)" title="Eliminar" >
-									<span class="glyphicon glyphicon-remove pull-right"></span>
+									<span class="glyphicon glyphicon-remove"></span>
 								</a>
 							</td>
                        </tr>
@@ -44,6 +44,15 @@
                         <div class="has-error" ng-show="formLibro.$dirty">
                             <span ng-show="formLibro.titulo.$error.required">Campo requerido</span>
                             <span ng-show="formLibro.titulo.$error.minlength">Longitud minima es 3</span>
+                            <span ng-show="formLibro.titulo.$invalid">Este campo es invalido</span>
+                        </div>                            
+                    </div>
+                    <div class="form-group col-md-12">
+	           			<label class="col-md-2 control-lable" for="isbn">ISBN</label>
+                        <input type="text" id="isbn" ng-model="libro.isbn" name="titulo" class="form-control input-sm" placeholder="ISBN" required="required" ng-minlength="5" />
+                        <div class="has-error" ng-show="formLibro.$dirty">
+                            <span ng-show="formLibro.titulo.$error.required">Campo requerido</span>
+                            <span ng-show="formLibro.titulo.$error.minlength">Longitud minima es 5</span>
                             <span ng-show="formLibro.titulo.$invalid">Este campo es invalido</span>
                         </div>                            
                     </div>

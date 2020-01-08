@@ -16,9 +16,14 @@ public class Libro {
     private long id;
 	
 	private String titulo;
-	private String alta;
+	private String isbn;
+	
+	@Column(columnDefinition = "boolean default false")
+	private boolean alta;
+	
+	@Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date fechaAlta ;
-  
+	
     public Date getFechaAlta() {
 		return fechaAlta;
 	}
@@ -35,11 +40,11 @@ public class Libro {
 		this.id = id;
 	}
 
-	public String getAlta() {
+	public boolean isAlta() {
 		return alta;
 	}
 
-	public void setAlta(String alta) {
+	public void setAlta(boolean alta) {
 		this.alta = alta;
 	}
 
@@ -50,7 +55,15 @@ public class Libro {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
  
-  
+    
 
 }

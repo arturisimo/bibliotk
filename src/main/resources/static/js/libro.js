@@ -19,7 +19,7 @@ app.controller('LibroController', ['$scope', '$http', function($scope, $http) {
     	
     	if (formLibro.id == null) {
     		
-    		formLibro.alta = 'N'
+    		formLibro.alta = false;
     		$http.post('/api/libros', formLibro).success(function(libro) {
 	    		listLibro();
 	    	}).error(function(error) {
@@ -49,13 +49,13 @@ app.controller('LibroController', ['$scope', '$http', function($scope, $http) {
     }
     
     $scope.publishLibro = function(libro){
-    	libro.alta = 'S'
+    	libro.alta = true;
     	$http.put('/api/libros/'+libro.id, libro).success(function() {
     		listLibro();
         });
     }
     $scope.hideLibro = function(libro){
-    	libro.alta = 'N'
+    	libro.alta = false;
     	$http.put('/api/libros/'+libro.id, libro).success(function() {
     		listLibro();
         });

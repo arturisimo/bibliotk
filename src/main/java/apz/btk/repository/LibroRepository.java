@@ -10,5 +10,5 @@ import apz.btk.entity.Libro;
 @RepositoryRestResource(collectionResourceRel = "libros", path = "libros")
 public interface LibroRepository extends CrudRepository<Libro, Long> {
 
-	List<Libro> findByAlta(String alta);
+	List<Libro> findByAlta(boolean alta);
 }

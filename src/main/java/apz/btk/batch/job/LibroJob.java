@@ -1,25 +1,26 @@
 package apz.btk.batch.job;
 
-import java.io.FileNotFoundException;
-
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import apz.btk.service.LibroService;
-import net.sf.jasperreports.engine.JRException;
+import apz.btk.service.LibroServiceImpl;
 
 public class LibroJob implements Job {
-    
+	
+	private static final Logger LOG = LoggerFactory.getLogger(LibroJob.class);
+	
 	@Autowired
-    private LibroService service;
+    private LibroServiceImpl libroService;
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) {
         try {
-			service.generateReport();
-		} catch (JRException | FileNotFoundException e) {
-			e.printStackTrace();
+        	libroService.generateReport();
+		} catch (Exception e) {
+			LOG.error(e.getMessage());
 		}
     }
     

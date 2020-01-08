@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-public class QuartzJob  implements Serializable{
+public class QuartzJob implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = -5652892132251208782L;
+	
 	/** nombre del proceso */
 	String jobName;
 	/** grupo del proceso */
