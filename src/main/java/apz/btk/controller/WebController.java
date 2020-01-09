@@ -14,6 +14,7 @@ import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
@@ -38,11 +39,18 @@ public class WebController extends WebMvcConfigurerAdapter {
 	@Autowired
 	SchedulerFactoryBean schedulerFactory; 
 	
+	@Value("${info.app.name}")
+	private String appName;
+	    
+	@Value("${info.app.version}")
+	private String appVersion;
+	
 	private static final String DATA_LOADER = "JobSchedulingDataLoaderPlugin";
 	
 	@GetMapping("/")
 	public ModelAndView list(Map<String, Object> data) {
 		data.put("title" , "Lista de libros");
+		data.put("appName", appName);
 		return new ModelAndView("libros", data);
 	}
 	
@@ -60,6 +68,8 @@ public class WebController extends WebMvcConfigurerAdapter {
 
 		data.put("date", new Date());
 		data.put("title" , "Admin de libros");
+		data.put("appName", appName);
+		data.put("app", appName + " "+ appVersion);
 		data.put("username" , name);
 		return new ModelAndView("admin", data);
 	}

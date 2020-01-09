@@ -18,6 +18,12 @@ public class LibroServiceImpl implements LibroService {
     @Value("${path.pdf}")
     private String pathPDF;
     
+    @Value("${info.app.name}")
+    private String appName;
+    
+    @Value("${info.app.version}")
+    private String appVersion;
+    
     @Autowired
 	LibroRepository libroRepository;
 
@@ -30,9 +36,11 @@ public class LibroServiceImpl implements LibroService {
 		String jasper = LibroServiceImpl.class.getResource("/jasper/report.jasper").getFile();
 		
 		Map<String, Object> parameters = new HashMap<>();
-	    parameters.put("TITULO", "PAISES");
-	    parameters.put("FECHA", new java.util.Date());
-		
+	    parameters.put("title", appName);
+	    parameters.put("subtitle", "Informe de libros");
+	    parameters.put("date", new java.util.Date());
+	    parameters.put("app", appName + " " + appVersion);
+	    
 		JasperUtil.listReport(jasper, librosPrivados, JasperUtil.TypeReport.PDF, parameters, pathPDF + "librosPrivados.pdf");
 		JasperUtil.listReport(jasper, librosPublicos, JasperUtil.TypeReport.PDF, parameters, pathPDF + "librosPublicos.pdf");
 		

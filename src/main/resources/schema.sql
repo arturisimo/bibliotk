@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS usuarios;
 
 CREATE TABLE usuarios (
@@ -10,8 +11,6 @@ CREATE TABLE usuarios (
 
 INSERT INTO usuarios (usuario, password, enabled) VALUES ('admin', '$2a$10$CJ5p.7NfVg32n1CQ0aqpZuawZ/7eiTPgP.OUieLRPlNGuJpoWJkFu', 1);
 INSERT INTO usuarios (usuario, password, enabled) VALUES ('arturo', '$2a$10$5IQiDJaSWMF/eaZKAW00hu5YhJFe4QYBZuGDvdzdPAtJriXqd1eSO', 1);
-
-DROP TABLE IF EXISTS roles;
 
 CREATE TABLE roles (
   id int(11) NOT NULL AUTO_INCREMENT,

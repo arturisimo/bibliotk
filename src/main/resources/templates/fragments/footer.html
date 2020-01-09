@@ -4,7 +4,7 @@
   	
   	<footer class="footer" th:fragment="footer">
       <div class="container">
-        <p class="text-muted" th:text="${'Zona admin | ' + #dates.format(date)}" />
+        <p class="text-muted" th:text="${'Zona admin | ' + #dates.format(date) + ' | ' + app}" />
       </div>
     </footer>
   
