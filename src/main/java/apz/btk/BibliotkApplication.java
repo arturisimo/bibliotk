@@ -5,14 +5,15 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
 @EnableGlobalMethodSecurity(securedEnabled = true)
-public class BibliotkApplication extends WebMvcConfigurerAdapter {
+public class BibliotkApplication extends SpringBootServletInitializer {
 	
 	@Value("${spring.datasource.driver-class-name}")
 	private String driverClassName;
@@ -26,9 +27,14 @@ public class BibliotkApplication extends WebMvcConfigurerAdapter {
 	@Value("${spring.datasource.password}")
 	private String password;
 
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(BibliotkApplication.class, args);
+	}
+	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(BibliotkApplication.class);
 	}
 		
 	@Bean

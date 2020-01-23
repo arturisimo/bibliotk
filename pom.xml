@@ -6,7 +6,7 @@
 	<groupId>apz.btk</groupId>
 	<artifactId>bibliotk</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>bibliotk</name>
 	<description>Demo bibliotk</description>
@@ -44,6 +44,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-batch</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<!-- Dependencia de Quartz -->
 		<dependency>

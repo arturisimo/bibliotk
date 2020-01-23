@@ -8,7 +8,7 @@ app.controller('LibroController', ['$scope', '$http', function($scope, $http) {
 	listLibro();
   
     function listLibro(){
-    	$http.get('/api/libros').success(function(libros) {
+    	$http.get('/bibliotk/api/libros').success(function(libros) {
         	$scope.libros = libros._embedded.libros;
         }).error(function(error) {
 	           console.log(error);
@@ -20,14 +20,14 @@ app.controller('LibroController', ['$scope', '$http', function($scope, $http) {
     	if (formLibro.id == null) {
     		
     		formLibro.alta = false;
-    		$http.post('/api/libros', formLibro).success(function(libro) {
+    		$http.post('/bibliotk/api/libros', formLibro).success(function(libro) {
 	    		listLibro();
 	    	}).error(function(error) {
 	           console.log(error);
 	    	});
     	} else {
     		console.log(formLibro);
-	    	$http.put('/api/libros/'+formLibro.id, formLibro).success(function(libro) {
+	    	$http.put('/bibliotk/api/libros/'+formLibro.id, formLibro).success(function(libro) {
 	    		listLibro();
 	    	}).error(function(error) {
 	           console.log(error);
@@ -43,20 +43,20 @@ app.controller('LibroController', ['$scope', '$http', function($scope, $http) {
     }
     
     $scope.deleteLibro = function(libro){
-    	$http.delete('/api/libros/'+libro.id).success(function() {
+    	$http.delete('/bibliotk/api/libros/'+libro.id).success(function() {
     		listLibro();
         });
     }
     
     $scope.publishLibro = function(libro){
     	libro.alta = true;
-    	$http.put('/api/libros/'+libro.id, libro).success(function() {
+    	$http.put('/bibliotk/api/libros/'+libro.id, libro).success(function() {
     		listLibro();
         });
     }
     $scope.hideLibro = function(libro){
     	libro.alta = false;
-    	$http.put('/api/libros/'+libro.id, libro).success(function() {
+    	$http.put('/bibliotk/api/libros/'+libro.id, libro).success(function() {
     		listLibro();
         });
     }

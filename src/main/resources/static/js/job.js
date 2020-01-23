@@ -7,14 +7,14 @@ app.controller('jobController', ['$scope', '$http', function($scope, $http) {
 	$scope.jobs=[];
     
 	
-	$http.get('/admin/job/list').success(function(jobs) {
+	$http.get('/bibliotk/admin/job/list').success(function(jobs) {
     	$scope.jobs = jobs;
     }).error(function(error) {
         console.log(error);
 	});
     
     $scope.fireJob = function(job){
-    	$http.get('/admin/fire/'+job.jobName).success(function(msg) {
+    	$http.get('/bibliotk/admin/fire/'+job.jobName).success(function(msg) {
     		console.log(msg);
     		$scope.msg = msg;
         	
